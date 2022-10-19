@@ -6,11 +6,12 @@
  * @author dianakaal <dianakaal@gmail.com>
  * @Date: 12/02/16
  * @Description: Combination of Yii framework's Input Mask and yii2-date-picker widget.
- * @package dianakaal\DatePickerMaskedWidget
+ * @package sitnikov\DatePickerMaskedWidget
  */
 
-namespace dianakaal\DatePickerMaskedWidget;
+namespace sitnikov\DatePickerMaskedWidget;
 
+use yii\bootstrap4\BootstrapPluginAsset;
 use yii\web\AssetBundle;
 
 /**
@@ -19,8 +20,8 @@ use yii\web\AssetBundle;
  */
 class DatePickerMaskedWidgetAsset extends AssetBundle
 {
-	//$sourcePath: specifies the root directory that contains the asset files in this bundle. 
-    public $sourcePath = '@vendor/dianakaal/date-picker-masked-widget';
+    //$sourcePath: specifies the root directory that contains the asset files in this bundle. 
+    public $sourcePath = '@vendor/sitnikov/date-picker-masked-widget';
 
     public $js = [
         'jquery.inputmask/dist/jquery.inputmask.bundle.js'
@@ -28,10 +29,11 @@ class DatePickerMaskedWidgetAsset extends AssetBundle
 
     //$depends: an array listing the names of the asset bundles that this bundle depends on, in order. 
     public $depends = [
-        'yii\bootstrap\BootstrapPluginAsset',//IS THIS AUTOMATICALLY INCLUDED IN YII2? so I don't need to add it to my project separately
+        BootstrapPluginAsset::class, //IS THIS AUTOMATICALLY INCLUDED IN YII2? so I don't need to add it to my project separately
     ];
 
-    public function init() {
+    public function init()
+    {
         $this->css[] = YII_DEBUG ? 'bootstrap-datepicker/dist/css/bootstrap-datepicker3.css' : 'bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css';
         $this->js[] = YII_DEBUG ? 'bootstrap-datepicker/dist/js/bootstrap-datepicker.js' : 'bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js';
     }

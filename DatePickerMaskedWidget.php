@@ -6,15 +6,14 @@
  * @author dianakaal <dianakaal@gmail.com>
  * @Date: 12/02/16
  * @Description: Combination of Yii framework's Input Mask and yii2-date-picker widget.
- * @package dianakaal\DatePickerMaskedWidget
+ * @package sitnikov\DatePickerMaskedWidget
  */
 
-namespace dianakaal\DatePickerMaskedWidget;
+namespace sitnikov\DatePickerMaskedWidget;
 
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\widgets\InputWidget;
-use yii\base\InvalidConfigException;
 use yii\web\JsExpression;
 use yii\web\view;
 
@@ -28,7 +27,7 @@ class DatePickerMaskedWidget extends InputWidget
      * @var string the addon markup if you wish to display the input as a component. If you don't wish to render as a
      * component then set it to null or false.
      */
-    public $addon = '<i class="glyphicon glyphicon-calendar"></i>';
+    public $addon = '<i class="fa fa-calendar"></i>';
     /**
      * @var string the template to render the input.
      */
@@ -117,7 +116,6 @@ class DatePickerMaskedWidget extends InputWidget
         }
         Html::addCssClass($this->options, 'form-control');
         Html::addCssClass($this->containerOptions, 'input-group date');
-        
     }
 
     /**
@@ -145,7 +143,6 @@ class DatePickerMaskedWidget extends InputWidget
         echo $input;
 
         $this->registerClientScript();
-
     }
 
     /**
@@ -175,8 +172,11 @@ class DatePickerMaskedWidget extends InputWidget
     {
         $options = $this->maskOptions;
         foreach ($options as $key => $value) {
-            if (!$value instanceof JsExpression && in_array($key, ['oncomplete', 'onincomplete', 'oncleared', 'onKeyUp',
-                    'onKeyDown', 'onBeforeMask', 'onBeforePaste', 'onUnMask', 'isComplete', 'determineActiveMasksetIndex'])
+            if (
+                !$value instanceof JsExpression && in_array($key, [
+                    'oncomplete', 'onincomplete', 'oncleared', 'onKeyUp',
+                    'onKeyDown', 'onBeforeMask', 'onBeforePaste', 'onUnMask', 'isComplete', 'determineActiveMasksetIndex'
+                ])
             ) {
                 $options[$key] = new JsExpression($value);
             }
@@ -202,7 +202,7 @@ class DatePickerMaskedWidget extends InputWidget
         }
         // @codeCoverageIgnoreEnd
 
-        $id = $this->options['id'];//the id of the element where to place the datepicker & inputmask
+        $id = $this->options['id']; //the id of the element where to place the datepicker & inputmask
         $selector = ";jQuery('#$id')";
 
         if ($this->addon || $this->inline) {
@@ -227,7 +227,7 @@ class DatePickerMaskedWidget extends InputWidget
         /*********************** maskedInput *************************/
         $js_mask = '';
         $view = $this->getView();
-        $this->initMaskOptions();//MaskedInput
+        $this->initMaskOptions(); //MaskedInput
 
         if (!empty($this->mask)) {
             $this->maskOptions['mask'] = $this->mask;
@@ -247,7 +247,5 @@ class DatePickerMaskedWidget extends InputWidget
         $js_datepicker = implode("\n", $js_datepicker);
         $js_result = $js_datepicker . $js_mask;
         $view->registerJS($js_result);
-
     }
-
 }

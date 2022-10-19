@@ -13,12 +13,12 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-composer require dianakaal/date-picker-masked-widget="*"
+composer require sitnikov/date-picker-masked-widget="*"
 ```
 or add
 
 ```json
-"dianakaal/date-picker-masked-widget": "*"
+"sitnikov/date-picker-masked-widget": "*"
 ```
 
 to the require section of your application's `composer.json` file.
@@ -35,7 +35,7 @@ USAGE
 **as a plain widget**
 ```
 <?php
-use dianakaal\DatePickerMaskedWidget\DatePickerMaskedWidget;
+use sitnikov\DatePickerMaskedWidget\DatePickerMaskedWidget;
 ?>
 <?=
     DatePickerMaskedWidget::widget([
@@ -89,7 +89,7 @@ use dianakaal\DatePickerMaskedWidget\DatePickerMaskedWidget;
 ------> WITHOUT A MODEL <------
 ```
 <?php
-use dianakaal\DatePickerMaskedWidget\DatePickerMaskedWidget;
+use sitnikov\DatePickerMaskedWidget\DatePickerMaskedWidget;
 ?>
 <?=
     DatePickerMaskedWidget::widget([
@@ -120,7 +120,7 @@ use dianakaal\DatePickerMaskedWidget\DatePickerMaskedWidget;
 ------> WITHOUT A MODEL <------
 ```
 <?php
-use dianakaal\DatePickerMaskedWidget\DateRangePickerMaskedWidget;
+use sitnikov\DatePickerMaskedWidget\DateRangePickerMaskedWidget;
 ?>
 <?=
     DateRangePickerMaskedWidget::widget([
@@ -148,7 +148,7 @@ use dianakaal\DatePickerMaskedWidget\DateRangePickerMaskedWidget;
 ------> WITH A MODEL <------
 ```
 <?php
-use dianakaal\DatePickerMaskedWidget\DateRangePickerMaskedWidget;
+use sitnikov\DatePickerMaskedWidget\DateRangePickerMaskedWidget;
 ?>
 <?=
     $form->field($model, 'startDate')->widget(DateRangePickerMaskedWidget::className(), [
