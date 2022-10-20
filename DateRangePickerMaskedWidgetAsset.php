@@ -19,19 +19,9 @@ use yii\web\AssetBundle;
  */
 class DateRangePickerMaskedWidgetAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/dianakaal/date-picker-masked-widget';
+    public $sourcePath = '@vendor/sitnikov-tv/date-picker-masked-widget';
 
-    public $css = [
-        'bootstrap-daterangepicker.css'
-    ];
+    public $css = ['bootstrap-daterangepicker.css'];
 
-    public $js = [
-        'jquery.inputmask/dist/jquery.inputmask.bundle.js'
-    ];
-
-    public $depends = [
-	    'sitnikov\DatePickerMaskedWidget\DatePickerMaskedWidgetAsset'
-    ];
-
+    public $depends = [DatePickerMaskedWidgetAsset::class];
 }
-

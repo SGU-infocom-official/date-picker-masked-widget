@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f22ded9a6a17acd96dc47a24edae95ca",
+    "content-hash": "35baaf607ab03ef474d2e1ff47d15a0d",
     "packages": [
         {
             "name": "bower-asset/bootstrap-datepicker",

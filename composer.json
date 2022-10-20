@@ -36,7 +36,7 @@
     },
     "extra": {
         "asset-installer-paths": {
-            "bower-asset-library": "vendor/bower"
+            "bower-asset-library": "vendor/bower-asset"
         }
     }
 }
