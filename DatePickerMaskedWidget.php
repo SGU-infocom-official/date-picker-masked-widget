@@ -25,6 +25,7 @@ class DatePickerMaskedWidget extends InputWidget
 
     /**
      * @var string the addon markup if you wish to display the input as a component. If you don't wish to render as a
+     *
      * component then set it to null or false.
      */
     public $addon = '<i class="fa fa-calendar"></i>';
@@ -45,6 +46,7 @@ class DatePickerMaskedWidget extends InputWidget
     const PLUGIN_NAME = 'inputmask';
     /**
      * @var string|array|JsExpression the input mask (e.g. '99/99/9999' for date input). The following characters
+     *
      * can be used in the mask and are predefined:
      *
      * - `a`: represents an alpha character (A-Z, a-z)
@@ -76,16 +78,19 @@ class DatePickerMaskedWidget extends InputWidget
     public $aliases; //have not figured out how to use that, it's not used on InputMask demo at all
     /**
      * @var array the JQuery plugin options for the input mask plugin.
+     *
      * @see https://github.com/RobinHerbots/jquery.inputmask
      */
     public $maskOptions = [];
     /**
      * @var array the HTML attributes for the input tag.
+     *
      * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
      */
     public $options = ['class' => 'form-control'];
     /**
      * @var string the type of the input tag. Currently only 'text' and 'tel' are supported.
+     *
      * @see https://github.com/RobinHerbots/jquery.inputmask
      * @since 2.0.6
      */
@@ -100,6 +105,7 @@ class DatePickerMaskedWidget extends InputWidget
 
     /**
      * @inheritdoc
+     *
      * init() - should contain the widget properties
      */
     public function init()
@@ -120,11 +126,11 @@ class DatePickerMaskedWidget extends InputWidget
 
     /**
      * @inheritdoc
+     *
      * run()  - should contain rendering result of the widget
      */
     public function run()
     {
-
         $input = $this->hasModel()
             ? Html::activeTextInput($this->model, $this->attribute, $this->options)
             : Html::textInput($this->name, $this->value, $this->options);
@@ -133,7 +139,7 @@ class DatePickerMaskedWidget extends InputWidget
             $input .= '<div></div>';
         }
         if ($this->addon && !$this->inline) {
-            $addon = Html::tag('span', $this->addon, ['class' => 'input-group-addon']);
+            $addon = Html::tag('span', $this->addon, ['class' => 'input-group-prepend input-group-append input-group-text']);
             $input = strtr($this->template, ['{input}' => $input, '{addon}' => $addon]);
             $input = Html::tag('div', $input, $this->containerOptions);
         }
@@ -153,6 +159,7 @@ class DatePickerMaskedWidget extends InputWidget
      * - 'data-plugin-inputmask' will store the hashed variable storing the plugin options.
      *
      * @param View $view the view instance
+     *
      * @author [Thiago Talma](https://github.com/thiagotalma)
      */
     protected function hashPluginOptions($view)
