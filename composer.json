@@ -1,5 +1,5 @@
 {
-    "name": "sitnikov-tv/date-picker-masked-widget",
+    "name": "sgu-infocom-official/date-picker-masked-widget",
     "type": "yii2-extension",
     "description": "Bootstrap DatePicker widget for Yii2 along with the Yii input mask functionality.",
     "keywords": [
@@ -15,7 +15,7 @@
     "license": "BSD-3-Clause",
     "authors": [
         {
-            "name": "sitnikov",
+            "name": "sguinfocom",
             "email": "t.sitnikov@infocom-s.ru",
             "role": "Developer"
         }
@@ -31,7 +31,7 @@
     },
     "autoload": {
         "psr-4": {
-            "sitnikov\\DatePickerMaskedWidget\\": ""
+            "sguinfocom\\DatePickerMaskedWidget\\": ""
         }
     },
     "extra": {

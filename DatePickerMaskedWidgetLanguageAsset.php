@@ -6,10 +6,10 @@
  * @author dianakaal <dianakaal@gmail.com>
  * @Date: 12/02/16
  * @Description: Combination of Yii framework's Input Mask and yii2-date-picker widget.
- * @package sitnikov\DatePickerMaskedWidget
+ * @package sguinfocom\DatePickerMaskedWidget
  */
 
-namespace sitnikov\DatePickerMaskedWidget;
+namespace sguinfocom\DatePickerMaskedWidget;
 
 use yii\web\AssetBundle;
 
