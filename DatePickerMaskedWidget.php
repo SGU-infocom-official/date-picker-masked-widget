@@ -140,6 +140,8 @@ class DatePickerMaskedWidget extends InputWidget
         }
         if ($this->addon && !$this->inline) {
             $addon = Html::tag('span', $this->addon, ['class' => 'input-group-prepend input-group-append input-group-text']);
+            $addon = Html::tag('div', $addon, ['class' => 'input-group-append']);
+
             $input = strtr($this->template, ['{input}' => $input, '{addon}' => $addon]);
             $input = Html::tag('div', $input, $this->containerOptions);
         }

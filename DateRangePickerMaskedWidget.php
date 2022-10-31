@@ -53,7 +53,7 @@ class DateRangePickerMaskedWidget extends InputWidget
     /**
      * @var string the template to render. Used internally.
      */
-    private $_template = '{inputFrom}<span class="input-group-prepend input-group-append input-group-text">{labelTo}</span>{inputTo}';
+    private $_template = '{inputFrom}<div class="input-group-append"><span class="input-group-prepend input-group-append input-group-text">{labelTo}</span></div>{inputTo}';
 
     /************************************ MaskedInput variables ***************************/
 
@@ -165,10 +165,9 @@ class DateRangePickerMaskedWidget extends InputWidget
                 $this->attributeTo,
                 [
                     'template' => '{input}{error}',
-                    'options' =>
-                        [
-                            'class' => 'input-group datepicker-range'
-                        ],
+                    'options' => [
+                        'class' => 'input-group datepicker-range'
+                    ],
                 ]
             )->textInput($this->optionsTo);
         } else {
@@ -184,7 +183,9 @@ class DateRangePickerMaskedWidget extends InputWidget
             strtr(
                 $this->_template,
                 ['{inputFrom}' => $inputFrom, '{labelTo}' => $this->labelTo, '{inputTo}' => $inputTo]
-            ), $this->containerOptions);
+            ),
+            $this->containerOptions
+        );
 
         $this->registerClientScript();
     }
@@ -217,8 +218,12 @@ class DateRangePickerMaskedWidget extends InputWidget
     {
         $options = $this->maskOptions;
         foreach ($options as $key => $value) {
-            if (!$value instanceof JsExpression && in_array($key, ['oncomplete', 'onincomplete', 'oncleared', 'onKeyUp',
-                    'onKeyDown', 'onBeforeMask', 'onBeforePaste', 'onUnMask', 'isComplete', 'determineActiveMasksetIndex'])
+            if (
+                !$value instanceof JsExpression &&
+                in_array($key, [
+                    'oncomplete', 'onincomplete', 'oncleared', 'onKeyUp',
+                    'onKeyDown', 'onBeforeMask', 'onBeforePaste', 'onUnMask', 'isComplete', 'determineActiveMasksetIndex'
+                ])
             ) {
                 $options[$key] = new JsExpression($value);
             }
@@ -235,7 +240,7 @@ class DateRangePickerMaskedWidget extends InputWidget
         $view = $this->getView();
 
         // @codeCoverageIgnoreStart
-        if($this->language !== null) {
+        if ($this->language !== null) {
             $this->clientOptions['language'] = $this->language;
             DatePickerMaskedWidgetLanguageAsset::register($view)->js[] = 'bootstrap-datepicker.' . $this->language . '.min.js';
         } else {
@@ -245,7 +250,7 @@ class DateRangePickerMaskedWidget extends InputWidget
 
         $id = $this->options['id'];
         $selector = ";jQuery('#$id').parent()";
-        if($this->form && $this->hasModel()) {
+        if ($this->form && $this->hasModel()) {
             // @codeCoverageIgnoreStart
             $selector .= '.parent()';
             $class = "field-" . Html::getInputId($this->model, $this->attribute);
@@ -267,7 +272,7 @@ class DateRangePickerMaskedWidget extends InputWidget
         /*********************** maskedInput *************************/
         $js_mask = '';
         $view = $this->getView();
-        $this->initMaskOptions();//MaskedInput
+        $this->initMaskOptions(); //MaskedInput
 
         if (!empty($this->mask)) {
             $this->maskOptions['mask'] = $this->mask;
@@ -289,9 +294,7 @@ class DateRangePickerMaskedWidget extends InputWidget
 
         $js_result = $js_datepicker . $js_mask;
 
-                // @codeCoverageIgnoreEnd
+        // @codeCoverageIgnoreEnd
         $view->registerJS($js_result);
-
     }
-
 }
