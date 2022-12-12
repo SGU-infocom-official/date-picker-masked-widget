@@ -31,6 +31,6 @@ class DatePickerMaskedWidgetAsset extends AssetBundle
         $this->css[] = YII_DEBUG ? 'bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.css' : 'bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.min.css';
 
         $this->js[] = YII_DEBUG ? 'bootstrap-datepicker/dist/js/bootstrap-datepicker.js' : 'bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js';
-        $this->js[] = YII_DEBUG ? 'inputmask/dist/jquery.inputmask.bundle.js' : 'inputmask/dist/jquery.inputmask.bundle.min.js';
+        $this->js[] = YII_DEBUG ? 'inputmask/dist/jquery.inputmask.bundle.js' : 'inputmask/dist/min/jquery.inputmask.bundle.min.js';
     }
 }
